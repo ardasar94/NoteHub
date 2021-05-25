@@ -21,7 +21,12 @@ namespace NoteHub.API.Data
                 var user = new ApplicationUser()
                 {
                     Email = Constants.DEFAULT_EMAIL,
-                    UserName = Constants.DEFAULT_EMAIL
+                    UserName = Constants.DEFAULT_EMAIL,
+                    Notes = new List<Note>()
+                    {
+                        new Note() { Title = "Samle Note 1", Content = "Lorem ipsum dolor sit amet, consectatur adipiscing elit."},
+                        new Note() { Title = "Samle Note 2", Content = "Lorem ipsum dolor sit amet, consectatur adipiscing elit."}
+                    }
                 };
                 await userManager.CreateAsync(user, Constants.DEFAULT_PASSWORD);
                 await userManager.AddToRoleAsync(user, Constants.Roles.ADMIN);
